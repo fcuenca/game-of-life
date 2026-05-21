@@ -19,5 +19,7 @@
 - No fancy terminal graphics
 - No configuration files
 
+**Reference:** See docs/GAME_RULES.md for rules and starting patterns
+
 ## Done
 (nothing yet)

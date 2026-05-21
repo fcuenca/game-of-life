@@ -15,7 +15,11 @@ This is a learning project to explore agentic development with AI assistance.
 - Ask before making significant design decisions
 - One small step at a time
 
+## Reference material
+- docs/GAME_RULES.md — rules and starting patterns for the Game of Life
+
 ## What I'm learning
 I am learning agentic development. Help me understand the decisions
 you're making, not just the code you're producing.
+
 
