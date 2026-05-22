@@ -1,12 +1,27 @@
 /**
  * Conway's Game of Life - Basic Console Implementation
- * TASK-002
+ * TASK-003
  */
 
 const ROWS = 20;
 const COLS = 20;
 const MAX_GENERATIONS = 50;
 const TICK_MS = 200;
+
+const PATTERNS = {
+  glider: [
+    [0, 1, 0],
+    [0, 0, 1],
+    [1, 1, 1]
+  ],
+  blinker: [
+    [1, 1, 1]
+  ],
+  block: [
+    [1, 1],
+    [1, 1]
+  ]
+};
 
 /**
  * Creates an empty 2D grid filled with 0 (dead cells).
@@ -16,22 +31,15 @@ function createGrid() {
 }
 
 /**
- * Places a Glider pattern at the specified top-left coordinates.
+ * Stams a pattern matrix onto the grid at the specified coordinates.
  */
-function seedGlider(grid, r, c) {
-  // Pattern:
-  // . X .
-  // . . X
-  // X X X
-  const pattern = [
-    [0, 1, 0],
-    [0, 0, 1],
-    [1, 1, 1]
-  ];
+function applyPattern(grid, pattern, startRow, startCol) {
   for (let i = 0; i < pattern.length; i++) {
     for (let j = 0; j < pattern[i].length; j++) {
-      if (r + i < ROWS && c + j < COLS) {
-        grid[r + i][c + j] = pattern[i][j];
+      const r = startRow + i;
+      const c = startCol + j;
+      if (r >= 0 && r < ROWS && c >= 0 && c < COLS) {
+        grid[r][c] = pattern[i][j];
       }
     }
   }
@@ -91,8 +99,17 @@ function render(grid, generation, maxGenerations) {
 }
 
 async function main() {
+  const patternArg = (process.argv[2] || 'glider').toLowerCase();
+  const pattern = PATTERNS[patternArg];
+
+  if (!pattern) {
+    console.error(`Error: Unknown pattern '${patternArg}'`);
+    console.log(`Available patterns are: ${Object.keys(PATTERNS).join(', ')}`);
+    process.exit(1);
+  }
+
   let grid = createGrid();
-  seedGlider(grid, 1, 1);
+  applyPattern(grid, pattern, 1, 1);
 
   for (let gen = 0; gen <= MAX_GENERATIONS; gen++) {
     render(grid, gen, MAX_GENERATIONS);

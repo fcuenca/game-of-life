@@ -21,6 +21,9 @@ This is a learning project to explore agentic development with AI assistance.
 
 ## Reference material
 - docs/GAME_RULES.md — rules and starting patterns for the Game of Life
+- Always consult reference files before defining domain-specific 
+  values. Never invent or assume values that should come from 
+  reference material.
 
 ## What I'm learning
 I am learning agentic development. Help me understand the decisions you're making, not just the code you're producing.

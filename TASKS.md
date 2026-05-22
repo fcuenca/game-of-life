@@ -5,6 +5,24 @@
 ## Ready
 
 ## Done
+
+### TASK-003: Choose starting pattern via command line argument  ✓
+**What:** Allow the user to specify a starting pattern when running 
+the app, e.g. `node gol.js glider` or `node gol.js blinker`
+**Why:** Makes the app more useful and introduces command line 
+argument handling in Node.js
+**Acceptance criteria:**
+- Running `node gol.js glider` starts with the Glider pattern
+- Running `node gol.js blinker` starts with the Blinker pattern
+- Running `node gol.js block` starts with the Still Life Block pattern
+- Running `node gol.js` with no argument defaults to Glider
+- Running `node gol.js <SOMETHING UNKNOWN>` prints a helpful error message, listing valid patterns and exits cleanly
+- All three patterns are defined in GAME_RULES.md. Let me know if it's missing. Don't invent them!
+
+**Out of scope:**
+- No interactive menu
+- No other input handling
+
 ### TASK-002: Refactor rendering logic out of main() ✓
 **What:** Extract the rendering code from main() into a dedicated render function
 **Why:** main() currently mixes game loop control with display logic. 
