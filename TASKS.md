@@ -4,7 +4,10 @@
 (nothing yet)
 
 ## Ready
-### TASK-001: Basic Game of Life console app
+
+
+## Done
+### TASK-001: Basic Game of Life console app ✓
 **What:** A working Conway's Game of Life that runs in the terminal
 **Why:** Learning project to explore agentic development
 **Acceptance criteria:**
@@ -20,6 +23,3 @@
 - No configuration files
 
 **Reference:** See docs/GAME_RULES.md for rules and starting patterns
-
-## Done
-(nothing yet)
