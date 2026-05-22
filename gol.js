@@ -1,6 +1,6 @@
 /**
  * Conway's Game of Life - Basic Console Implementation
- * TASK-001
+ * TASK-002
  */
 
 const ROWS = 20;
@@ -80,14 +80,22 @@ function getNextGeneration(grid) {
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+/**
+ * Renders the current state of the game to the console.
+ */
+function render(grid, generation, maxGenerations) {
+  console.clear();
+  console.log(`Generation: ${generation} / ${maxGenerations}`);
+  const output = grid.map(row => row.map(cell => (cell ? 'X' : '.')).join(' ')).join('\n');
+  console.log(output);
+}
+
 async function main() {
   let grid = createGrid();
   seedGlider(grid, 1, 1);
 
   for (let gen = 0; gen <= MAX_GENERATIONS; gen++) {
-    console.clear();
-    console.log(`Generation: ${gen} / ${MAX_GENERATIONS}`);
-    console.log(grid.map(row => row.map(cell => (cell ? 'X' : '.')).join(' ')).join('\n'));
+    render(grid, gen, MAX_GENERATIONS);
     grid = getNextGeneration(grid);
     await sleep(TICK_MS);
   }
