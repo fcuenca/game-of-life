@@ -1,10 +1,26 @@
 # Tasks
 
-## In Progress
-
 ## Ready
 
+
+## In Progress
+
+
 ## Done
+
+### TASK-004: Set initial position ✓
+**What:** allow the initial position of the pattern to be specified via command line arguments
+**Why:** currently it's hard-coded and always the same. We want some variety
+**Acceptance criteria:**
+- the specified coordinate corresponds to the pattern's top-left corner
+- the starting coordinates is an optional parameter. if not specified, the default position is 0,0
+- if the coordinates passed in are invalid (non-integer numbers, negatives, no separator, bad separator, etc.) or fall outside the grid, fail execution with an error message that explains the problem
+**Out of scope:**
+- Validating that the pattern fits entirely within the grid bounds. It's Ok to clip the pattern for now.
+- No fancy terminal graphics
+- No configuration files
+- Changing the grid size
+- specifying multiple patterns
 
 ### TASK-003: Choose starting pattern via command line argument  ✓
 **What:** Allow the user to specify a starting pattern when running 
