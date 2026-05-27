@@ -1,0 +1,5 @@
+description = "Session startup: load the current task from the GitHub Projects board"
+prompt = """
+Check the board. Then, report the current task details (Title, Description, and Item ID). Then confirm your understanding of the task before we proceed.
+"""
+

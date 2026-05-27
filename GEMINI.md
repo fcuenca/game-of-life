@@ -15,6 +15,13 @@ This is a learning project to explore agentic development with AI assistance.
 - Ask before making significant design decisions
 - One small step at a time
 
+## Session startup
+At the start of every session:
+1. Read this file completely
+2. Ask the user to confirm the current task by saying "check the board"
+3. Confirm your understanding of the task before proposing anything
+
+
 ## Boundaries
 - Only modify files directly related to the current task
 - Do not update TASKS.md or any documentation files unless explicitly asked to do so
