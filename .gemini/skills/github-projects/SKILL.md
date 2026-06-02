@@ -15,14 +15,27 @@ When the user asks "what's my current task" or "check the board", or during sess
 - Report the task details (Title, Description, and Item ID) to the user.
 - Store the returned Item ID in context for use later in the session.
 
-### 2. Mark a task as complete
+### 2. Start a task
+When the user asks to "start the task" or "move the task to in progress":
+- First, if the Item ID is not known, run `scripts/get-current-task.sh` to find it.
+- Run `scripts/update-task-status.sh <ITEM_ID> IN_PROGRESS`.
+- Confirm to the user that the task has been started.
+
+### 3. Update task description
+When the user asks to "update the task description" or "update the acceptance criteria":
+- Run `scripts/update-task-body.sh <ITEM_ID> "<NEW_BODY_TEXT>"`.
+- Confirm to the user that the task content has been updated.
+
+### 4. Mark a task as complete
 When the user asks to "mark the current task as done" or "complete the task":
 - First, if the Item ID is not known, run `scripts/get-current-task.sh` to find it.
-- Run `scripts/complete-task.sh <ITEM_ID>`.
+- Run `scripts/update-task-status.sh <ITEM_ID> DONE`.
 - Confirm to the user that the task has been marked as Done.
 
 ## Bundled Resources
 
 - `scripts/get-current-task.sh`: Fetches the "In Progress" task.
-- `scripts/complete-task.sh`: Sets a task's status to "Done".
+- `scripts/update-task-status.sh`: Sets a task's status (e.g., IN_PROGRESS, DONE).
+- `scripts/update-task-body.sh`: Updates the task body (supports both Issues and Drafts).
+- `scripts/complete-task.sh`: (Deprecated) Sets a task's status to "Done" (delegates to `update-task-status.sh`).
 - `scripts/project-config.sh`: Configuration for the project (IDs and Owner).
