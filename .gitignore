@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Test coverage output
+coverage/
+
+# Environment variables
+.env
+.env.local
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
