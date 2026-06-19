@@ -14,6 +14,8 @@ This is a learning project to explore agentic development with AI assistance.
 - Explain what you're doing and why as you go
 - Ask before making significant design decisions
 - One small step at a time
+- "npm run check" must pass before marking any task "Done"
+- When a task is done, report decisions and discoveries made during implementation.
 
 ## Session startup
 At the start of every session:
