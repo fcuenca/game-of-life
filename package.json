@@ -5,13 +5,17 @@
   "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint src test",
+    "check": "npm run lint && npm test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.5.0",
     "jest": "^30.4.2"
   }
 }
