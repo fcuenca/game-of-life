@@ -28,6 +28,22 @@ At the start of every session:
 - Only modify files directly related to the current task
 - Do not update TASKS.md or any documentation files unless explicitly asked to do so
 
+## Test organisation
+This project maintains two distinct test files with different purposes:
+
+- `test/gol.test.js` — unit tests tied to specific functions and implementation 
+  details. These may change freely as the implementation evolves.
+- `test/gol.spec.js` — behavioural specification tests. These describe observable 
+  game behaviour in Given/When/Then language with no knowledge of internal function 
+  names, data structures, or implementation details. This file is a fixed point — 
+  only change it if Conway's rules or fundamental game behaviour changes.
+
+When writing spec tests:
+- Set up state using the public API (e.g. pattern application), never by direct 
+  array manipulation
+- Verify behaviour through observable outcomes, not by calling internal functions
+- Test descriptions must read as plain behavioural statements, not technical assertions
+
 ## Reference material
 - docs/GAME_RULES.md — rules and starting patterns for the Game of Life
 - Always consult reference files before defining domain-specific 
