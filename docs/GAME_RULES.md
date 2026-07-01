@@ -31,5 +31,13 @@ A stable 2x2 pattern that never changes:
 XX
 XX
 
+### Beacon
+A four-cell-block oscillator that alternates between two phases every generation:
+
+XX..
+XX..
+..XX
+..XX
+
 
 
