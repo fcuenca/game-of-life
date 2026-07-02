@@ -26,23 +26,24 @@ At the start of every session:
 
 ## Boundaries
 - Only modify files directly related to the current task
-- Do not update TASKS.md or any documentation files unless explicitly asked to do so
+- Do not update GAME_RULES.md or any documentation files unless explicitly asked to do so
 
 ## Test organisation
-This project maintains two distinct test files with different purposes:
+This project maintains two categories of tests with different purposes:
 
-- `test/gol.test.js` — unit tests tied to specific functions and implementation 
-  details. These may change freely as the implementation evolves.
-- `test/gol.spec.js` — behavioural specification tests. These describe observable 
-  game behaviour in Given/When/Then language with no knowledge of internal function 
-  names, data structures, or implementation details. This file is a fixed point — 
-  only change it if Conway's rules or fundamental game behaviour changes.
+- test/gol.test.js — unit tests tied to specific functions and implementation details. These may change freely as the implementation evolves.
+- test/spec/*.spec.js — behavioural specification tests, one file per feature/pattern (e.g. grid.spec.js, block.spec.js, blinker.spec.js), plus test/spec/canonical-shapes.js for shared shape constants used across spec files. These describe observable game behaviour in Given/When/Then language with no knowledge of internal function names, data structures, or implementation details.
 
-When writing spec tests:
-- Set up state using the public API (e.g. pattern application), never by direct 
-  array manipulation
-- Verify behaviour through observable outcomes, not by calling internal functions
-- Test descriptions must read as plain behavioural statements, not technical assertions
+test/spec/** is protected. Do not modify any file under test/spec/ unless the task card explicitly authorizes it. Most implementation tasks must treat these files as read-only. When a task does authorize a change, it is one of two kinds, and only one applies per task:
+
+  * Red task — replace stub assertions (e.g. throw new Error('Not yet implemented')) with real Jest assertions in a spec file that already exists. Never modify src/gol.js in a Red task.
+  * Green task — implement src/gol.js until an already-red spec passes. Never modify any file under test/spec/ in a Green task.
+
+When writing spec assertions (Red tasks only):
+
+  * Set up state using the public API (e.g. pattern application), never by direct array manipulation
+  * Verify behaviour through observable outcomes, not by calling internal functions
+  * Test descriptions must match the task card exactly — do not reword or reinterpret them
 
 ## Reference material
 - docs/GAME_RULES.md — rules and starting patterns for the Game of Life
