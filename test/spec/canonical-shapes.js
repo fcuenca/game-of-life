@@ -13,8 +13,16 @@ const CANONICAL_GLIDER = [
   [1, 1, 1]
 ];
 
+const CANONICAL_BEACON = [
+  [1, 1, 0, 0],
+  [1, 1, 0, 0],
+  [0, 0, 1, 1],
+  [0, 0, 1, 1]
+];
+
 module.exports = {
   CANONICAL_BLOCK,
   CANONICAL_BLINKER,
-  CANONICAL_GLIDER
+  CANONICAL_GLIDER,
+  CANONICAL_BEACON
 };
