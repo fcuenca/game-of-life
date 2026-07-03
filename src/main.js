@@ -2,17 +2,13 @@
  * Conway's Game of Life - Entry Point
  */
 
-const {
-  MAX_GENERATIONS,
-  TICK_MS,
-  PATTERNS,
-  createGrid,
-  applyPattern,
-  getNextGeneration,
-  parseCoordinates
-} = require('./gol');
+const { MAX_GENERATIONS, TICK_MS, PATTERNS, createGrid, applyPattern, getNextGeneration } = require('./gol');
+const { parseCliArgs } = require('./cliParser');
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// ------------------------------------------------
+// Removed parseCliArgs; it lives in src/cliParser.js
 
 /**
  * Renders the current state of the game to the console.
@@ -25,11 +21,7 @@ function render(grid, generation, maxGenerations) {
 }
 
 async function main() {
-  const patternArg = (process.argv[2] || 'glider').toLowerCase();
-  const pattern = PATTERNS[patternArg];
-
-  const coordInput = process.argv[3];
-  const coordResult = parseCoordinates(coordInput);
+  const { patternArg, pattern, coordResult } = parseCliArgs(process.argv);
 
   if (!pattern) {
     console.error(`Error: Unknown pattern '${patternArg}'`);
@@ -52,5 +44,6 @@ async function main() {
     await sleep(TICK_MS);
   }
 }
+
 
 main();
