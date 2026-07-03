@@ -7,8 +7,6 @@ const { parseCliArgs } = require('./cliParser');
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// ------------------------------------------------
-// Removed parseCliArgs; it lives in src/cliParser.js
 
 /**
  * Renders the current state of the game to the console.
