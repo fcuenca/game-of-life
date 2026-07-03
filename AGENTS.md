@@ -12,7 +12,7 @@ This is a learning project to explore agentic development with AI assistance.
 ## Session startup
 At the start of every session:
 1. Read this file completely
-2. Ask the user to confirm the current task by saying "check the board"
+2. When the user says "check the board", use the github-projects skill to look up the current task and report it back for confirmation
 3. Confirm your understanding of the task before proposing anything
 
 ## Implementation Standards
@@ -53,6 +53,9 @@ When writing spec assertions (Red tasks only):
 - Always consult reference files before defining domain-specific 
   values. Never invent or assume values that should come from 
   reference material.
+
+## Discoveries to remember
+- Direct gh project/gh issue calls fail under Antigravity's permission system regardless of grants ('unsupported resource type'). Route any new GitHub Projects interaction through a dedicated skill script under .agents/skills/github-projects/scripts/, when available. Report the missing functionality when not available.
 
 ## What I'm learning
 I am learning agentic development. Help me understand the decisions you're making, not just the code you're producing.
